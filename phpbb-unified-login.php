@@ -351,7 +351,14 @@ if (is_file($phpbb_root_path . 'config.'.$phpEx)) {
     function PhpBB_signup($user_id)
     {
         global $db;
-        PhpBB_user_add(array('username'=>$_POST['user_login'], 'user_email'=>$_POST['user_email'], 'user_type'=>0, 'group_id'=>7));
+        $sql = 'SELECT group_id
+            FROM ' . GROUPS_TABLE . "
+            WHERE group_name = 'REGISTERED'
+                AND group_type = " . GROUP_SPECIAL;
+        $result = $db->sql_query($sql);
+        $add_group_id = (int) $db->sql_fetchfield('group_id');
+        $db->sql_freeresult($result);
+        PhpBB_user_add(array('username'=>$_POST['user_login'], 'user_email'=>$_POST['user_email'], 'user_type'=>0, 'group_id'=>$add_group_id));
     }
 
     function PhpBB_logout($user_id)
