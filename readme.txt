@@ -16,7 +16,7 @@ This plugin allows your users to login simultaneously on your WordPress site and
 It might be used with its companion plugin for phpBB: https://github.com/StrasWeb/phpbb-auth_wp
 
 == Installation ==
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `phpbb-unified-login.php` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. In WordPress settings, specify the path to your phpBB directory
 
